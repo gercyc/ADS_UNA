@@ -221,7 +221,23 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_11()
         {
+            double precoFabrica, percentualLucro, percentualImpostos;
+            Console.WriteLine("Digite o valor de fabrica:");
+            double.TryParse(Console.ReadLine(), out precoFabrica);
 
+            Console.WriteLine("Digite o percentual de lucro do distribuidor:");
+            double.TryParse(Console.ReadLine(), out percentualLucro);
+
+
+            Console.WriteLine("Digite o percentual de impostos:");
+            double.TryParse(Console.ReadLine(), out percentualImpostos);
+
+
+            Console.WriteLine($"O lucro será: {precoFabrica * (percentualLucro / 100)}");
+            Console.WriteLine($"O valor dos impostos será: {precoFabrica * (percentualImpostos / 100)}");
+            Console.WriteLine($"O valor final do veículo será: {precoFabrica + ((percentualImpostos / 100) + (percentualLucro / 100))}");
+
+            Console.ReadLine();
         }
 
         /// <summary>
@@ -232,7 +248,16 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_12()
         {
+            double alturaDegrau, alturaDesejada;
+            Console.WriteLine("Digite o valor da altura de cada degrau:");
+            double.TryParse(Console.ReadLine(), out alturaDegrau);
 
+            Console.WriteLine("Digite o valor da altura que deseja alcançar:");
+            double.TryParse(Console.ReadLine(), out alturaDesejada);
+
+            Console.WriteLine($"Você precisará subir {alturaDesejada / alturaDegrau} degraus para alcançar a altura {alturaDesejada}");
+
+            Console.ReadLine();
         }
 
         /// <summary>
