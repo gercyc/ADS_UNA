@@ -10,7 +10,7 @@ namespace ListaExercicios1
     {
         static void Main(string[] args)
         {
-            Exercicio_10();
+            Exercicio_13();
         }
         /// <summary>
         /// 1)Faça um programa que receba quatro números inteiros, calcule e mostre a soma desses números.
@@ -269,6 +269,19 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_13()
         {
+            double angulo = 0, altura = 0;
+            Console.WriteLine("Digite a medida em angulo: ");
+            double.TryParse(Console.ReadLine(), out angulo);
+
+            Console.WriteLine("Digite a altura da parede:");
+            double.TryParse(Console.ReadLine(), out altura);
+
+            //ref: http://www.vcskicks.com/csharp_net_angles.php
+            var cosAngulo = Math.Cos(Math.PI * angulo / 180);
+
+            Console.WriteLine($"A altura da escada é: {cosAngulo * altura}");
+
+            Console.ReadKey();
 
         }
 
@@ -278,6 +291,14 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_14()
         {
+            Console.WriteLine("Informe um numero real:");
+            double numero;
+            double.TryParse(Console.ReadLine(), out numero);
+
+            Console.WriteLine($"a) Parte inteira: {Math.Truncate(numero)}");
+            //Console.WriteLine($"b) Parte fracionária: {Math.(numero)}");
+            Console.WriteLine($"a) Parte inteira: {Math.Truncate(numero)}");
+
 
         }
 
