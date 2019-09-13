@@ -10,7 +10,7 @@ namespace ListaExercicios1
     {
         static void Main(string[] args)
         {
-            Exercicio_13();
+            Exercicio_25();
         }
         /// <summary>
         /// 1)Faça um programa que receba quatro números inteiros, calcule e mostre a soma desses números.
@@ -277,7 +277,7 @@ namespace ListaExercicios1
             double.TryParse(Console.ReadLine(), out altura);
 
             //ref: http://www.vcskicks.com/csharp_net_angles.php
-            var cosAngulo = Math.Cos(Math.PI * angulo / 180);
+            var cosAngulo = Math.Sin(Math.PI * angulo / 180);
 
             Console.WriteLine($"A altura da escada é: {cosAngulo * altura}");
 
@@ -308,7 +308,11 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_15()
         {
-
+            Console.WriteLine("Digite a hora (Formato HH:MM)");
+            TimeSpan ts;
+            TimeSpan.TryParse(Console.ReadLine(), out ts);
+            Console.WriteLine($"Minutos: {ts.TotalMinutes}");
+            Console.ReadLine();
         }
 
         /// <summary>
@@ -318,7 +322,15 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_16()
         {
+            decimal custo, precoConvite;
+            Console.WriteLine("Digite o custo do espetaculo");
+            decimal.TryParse(Console.ReadLine(), out custo);
+            Console.WriteLine("Digite o preço do convite");
+            decimal.TryParse(Console.ReadLine(), out precoConvite);
 
+            Console.WriteLine($"Deverão ser vendidos ao menos {custo / precoConvite} convites para cobrir o custo!");
+
+            Console.ReadLine();
         }
 
         /// <summary>
@@ -328,7 +340,14 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_17()
         {
-
+            Console.WriteLine("Digite um numero INTEIRO: ");
+            int num;
+            int.TryParse(Console.ReadLine(), out num);
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine($"{num} X {i} = {num * i}");
+            }
+            Console.ReadLine();
         }
 
         /// <summary>
@@ -338,15 +357,50 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_18()
         {
+            int ano, currentYear;
+            Console.WriteLine("Digite seu ano de nascimento");
+            int.TryParse(Console.ReadLine(), out ano);
 
+            Console.WriteLine("Digite o ano atual");
+            int.TryParse(Console.ReadLine(), out currentYear);
+
+            int idade = (currentYear - ano);
+            int meses = idade * 12;
+            int dias = 0, aux = 0;
+
+            while (aux <= idade)
+            {
+                for (int i = 1; i <= 12; i++)
+                {
+                    dias = dias + DateTime.DaysInMonth(ano, i);
+                }
+                ano++;
+                aux++;
+            }
+
+            Console.WriteLine($"Sua idade em anos é {idade}, em meses é {meses} em semanas é {dias / 7} e em dias é {dias}");
+            Console.ReadLine();
         }
 
         /// <summary>
         /// Fala um programa que receba o valor dos catetos de um triângulo, calcule e mostre o valor da hipotenusa.
+        /// soma dos quadrados dos catetos é igual ao quadrado da hipotenusa...
         /// </summary>
         static void Exercicio_19()
         {
+            double cateto_1 = 0, cateto_2 = 0, hipotenusa = 0;
+            Console.WriteLine("Digite o valor de um cateto: ");
+            double.TryParse(Console.ReadLine(), out cateto_1);
 
+            Console.WriteLine("Digite o valor de outro cateto: ");
+            double.TryParse(Console.ReadLine(), out cateto_2);
+
+            double somaQuadradosCatetos = (Math.Pow(cateto_1, 2)) + (Math.Pow(cateto_2, 2));
+            hipotenusa = Math.Sqrt(somaQuadradosCatetos);
+
+            Console.WriteLine($"O valor da hipotenusa é: {hipotenusa}");
+
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -357,7 +411,14 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_20()
         {
+            Console.WriteLine("Digite o valor do raio: ");
+            double raio;
+            double.TryParse(Console.ReadLine(), out raio);
 
+            Console.WriteLine($"O comprimento da esfera é: {2 * Math.PI * raio}");
+            Console.WriteLine($"A área da esfera é: {Math.PI * Math.Pow(raio, 2)}");
+            Console.WriteLine($"O volume da esfera é: {1 / 4 * Math.PI * raio}");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -368,7 +429,16 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_21()
         {
+            Console.WriteLine("Digite a largura: ");
+            double largura, comprimento;
+            double.TryParse(Console.ReadLine(), out largura);
 
+            Console.WriteLine("Digite o comprimento: ");
+            double.TryParse(Console.ReadLine(), out comprimento);
+
+            Console.WriteLine($"A área do seu comodo é : {largura * comprimento}");
+            Console.WriteLine($"Você vai precisar de {(largura * comprimento) * 18}W de potência");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -378,7 +448,12 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_22()
         {
+            Console.WriteLine("Digite O Nº de lados do poligono: ");
+            double n_lados;
+            double.TryParse(Console.ReadLine(), out n_lados);
 
+            Console.WriteLine($"O poligono informado possui {n_lados * (n_lados - 3) / 2} diagonais");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -388,7 +463,15 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_23()
         {
+            Console.WriteLine("Digite o valor do Angulo A: ");
+            double angulo_a, angulo_b;
+            double.TryParse(Console.ReadLine(), out angulo_a);
 
+            Console.WriteLine("Digite o valor do Angulo B: ");
+            double.TryParse(Console.ReadLine(), out angulo_b);
+
+            Console.WriteLine($"O angulo C do triangulo informado é {180 - (angulo_a - angulo_b)}");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -400,7 +483,14 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_24()
         {
+            Console.WriteLine("Digite o montante em R$");
+            decimal montante;
+            decimal.TryParse(Console.ReadLine(), out montante);
 
+            Console.WriteLine($"Valor em DOLAR: {montante / 1.8m}");
+            Console.WriteLine($"Valor em LIBRA: {montante / 3.7m}");
+            Console.WriteLine($"Valor em MARCO ALEMÃO: {montante / 2m}");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -412,7 +502,17 @@ namespace ListaExercicios1
         /// </summary>
         static void Exercicio_25()
         {
+            Console.WriteLine("Digite a hora");
+            int hora, minutos;
+            int.TryParse(Console.ReadLine(), out hora);
+            Console.WriteLine("Digite os minutos");
+            int.TryParse(Console.ReadLine(), out minutos);
+            double totalMinutes = TimeSpan.FromHours(hora).TotalMinutes;
 
+            Console.WriteLine($"Hora digitada em minutos: {totalMinutes}");
+            Console.WriteLine($"Total dos minutos: {minutos + totalMinutes}");
+            Console.WriteLine($"Total dos minutos em sec: {TimeSpan.FromMinutes(totalMinutes).TotalSeconds}");
+            Console.ReadKey();
         }
     }
 }
