@@ -8,15 +8,68 @@ namespace Laboratorio
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            //Chamada do exercicio1
-            //Exercicio1();
-
-            //Chamada do exercicio2
-            Exercicio2_novo();
-
+            ExercicioNotaFabiana();
         }
+
+        #region Exercicio Fabiana - calculo nota com while
+        private static void ExercicioNotaFabiana()
+        {
+            string msgNota1 = "Digite a primeira nota (0-10)";
+            string msgNota2 = "Digite a segunda nota (0-10)";
+            double nota1, nota2;
+            int option = 0;
+
+            while (true)
+            {
+                Console.WriteLine(msgNota1);
+                double.TryParse(Console.ReadLine(), out nota1);
+
+                if (nota1 > 10 || nota1 < 0)
+                {
+                    Console.WriteLine("Nota invalida, digite entre 1 e 10. Informe a nota:");
+                    Console.WriteLine("Digite a nota válida");
+                    double.TryParse(Console.ReadLine(), out nota1);
+                }
+
+                Console.WriteLine(msgNota2);
+                double.TryParse(Console.ReadLine(), out nota2);
+                //CheckNota(nota2, out nota2);
+
+                if (nota2 > 10 || nota2 < 0)
+                {
+                    Console.WriteLine("Nota invalida, digite entre 1 e 10. Informe a nota:");
+                    Console.WriteLine("Digite a nota válida");
+                    double.TryParse(Console.ReadLine(), out nota2);
+                }
+
+                //Console.WriteLine($"Media: {Avg((float)nota1, (float)nota2)}");
+
+                Console.WriteLine($"Media: {(nota1 + nota2) / 2}");
+
+                Console.WriteLine($"Novo calculo? 1 = SIM, 2 = NAO");
+                int.TryParse(Console.ReadLine(), out option);
+
+                if (option > 1 || option < 1)
+                    break;
+
+            }
+            Console.ReadLine();
+        }
+        static void CheckNota(double nota, out double newNota)
+        {
+            newNota = nota;
+            if (nota > 10 || nota < 0)
+            {
+                Console.WriteLine("Nota invalida, digite entre 1 e 10. Informe a nota:");
+                Console.WriteLine("Digite a nota válida");
+                double.TryParse(Console.ReadLine(), out newNota);
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// Faz a soma de 2 numeros. 30/08/2019
