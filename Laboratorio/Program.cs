@@ -11,7 +11,43 @@ namespace Laboratorio
 
         static void Main(string[] args)
         {
-            ExercicioNotaFabiana();
+            Exercicio_1809();
+        }
+
+        static void Exercicio_1809()
+        {
+            int mySecretNumber = new Random().Next(100), receivedNumber = 0, retryCount = 0;
+            Console.WriteLine("Tente descobrir o numero secreto.");
+            Console.WriteLine("Digite um numero de 0 a 100");
+            int.TryParse(Console.ReadLine(), out receivedNumber);
+
+            while (true)
+            {
+                if (receivedNumber == mySecretNumber)
+                {
+                    retryCount++;
+                    Console.WriteLine($"Parabens! Acertou em {retryCount} tentativas");
+                    break;
+                }
+
+                if (receivedNumber != mySecretNumber)
+                {
+                    if (receivedNumber > mySecretNumber)
+                    {
+                        Console.WriteLine("Digite um numero menor");
+                        int.TryParse(Console.ReadLine(), out receivedNumber);
+                        retryCount++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Digite um numero maior");
+                        int.TryParse(Console.ReadLine(), out receivedNumber);
+                        retryCount++;
+                    }
+                }
+
+            }
+            Console.ReadLine();
         }
 
         #region Exercicio Fabiana - calculo nota com while
