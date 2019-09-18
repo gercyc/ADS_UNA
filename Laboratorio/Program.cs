@@ -23,9 +23,10 @@ namespace Laboratorio
 
             while (true)
             {
+                retryCount++;
+
                 if (receivedNumber == mySecretNumber)
                 {
-                    retryCount++;
                     Console.WriteLine($"Parabens! Acertou em {retryCount} tentativas");
                     break;
                 }
@@ -36,13 +37,11 @@ namespace Laboratorio
                     {
                         Console.WriteLine("Digite um numero menor");
                         int.TryParse(Console.ReadLine(), out receivedNumber);
-                        retryCount++;
                     }
                     else
                     {
                         Console.WriteLine("Digite um numero maior");
                         int.TryParse(Console.ReadLine(), out receivedNumber);
-                        retryCount++;
                     }
                 }
 
