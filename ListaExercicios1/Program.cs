@@ -10,7 +10,7 @@ namespace ListaExercicios1
     {
         static void Main(string[] args)
         {
-            Exercicio_25();
+            Exercicio_1();
         }
         /// <summary>
         /// 1)Faça um programa que receba quatro números inteiros, calcule e mostre a soma desses números.
